@@ -20,17 +20,17 @@ span.onclick = function () {
 
 keo.onclick = function () {
     modal.style.display = "none";
-    localStorage.setItem("choice", "keo");
+    localStorage.setItem("choice", "2");
 }
 
 bao.onclick = function () {
     modal.style.display = "none";
-    localStorage.setItem("choice", "bao");
+    localStorage.setItem("choice", "3");
 }
 
 bua.onclick = function () {
     modal.style.display = "none";
-    localStorage.setItem("choice", "bua");
+    localStorage.setItem("choice", "1");
 }
 
 // hover bua

@@ -2,7 +2,8 @@ class Game {
     constructor() {
         this.canvas = null;
         this.context = null;
-        this.numberOfItems = 60;
+        this.numberOfItems = 120;
+        this.running = true;
         this.init();
     }
 
@@ -39,6 +40,9 @@ class Game {
 
 
     loop(timestamp) {
+        if (!this.running) {
+            return;
+        }
         this.update();
         this.draw();
         requestAnimationFrame((timestamp) => this.loop(timestamp));
@@ -68,6 +72,14 @@ class Game {
             }
         }
 
+        if (this.checkWin() != -1) {
+            let text = ["Bua", "Keo", "Bao"];
+            let yourChoice = localStorage.getItem("choice");
+            yourChoice = parseInt(yourChoice);
+            alert("Your choice: " + text[yourChoice - 1] + "\nWin: " + text[this.checkWin() - 1]);
+            this.running = false;
+        }
+
         this.render();
     }
 
@@ -86,6 +98,19 @@ class Game {
             this.items[i].update();
             this.items[i].draw();
         }
+    }
+
+    checkWin() {
+        let count = [0, 0, 0];
+        for (let i = 0; i < this.items.length; i++) {
+            count[this.items[i].index - 1]++;
+        }
+        for (let i = 0; i < 3; i++) {
+            if (count[i] == this.numberOfItems) {
+                return i + 1;
+            }
+        }
+        return -1;
     }
 
     clearScreen() {
