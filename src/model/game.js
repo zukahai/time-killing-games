@@ -40,11 +40,17 @@ class Game {
 
 
     loop(timestamp) {
+        
+        let startStorage = localStorage.getItem("start");
+        
         if (!this.running) {
             return;
         }
-        this.update();
-        this.draw();
+        if (startStorage == "true") {
+            this.update();
+            this.draw();
+        }
+        
         requestAnimationFrame((timestamp) => this.loop(timestamp));
     }
 
@@ -77,6 +83,7 @@ class Game {
             let yourChoice = localStorage.getItem("choice");
             yourChoice = parseInt(yourChoice);
             alert("Your choice: " + text[yourChoice - 1] + "\nWin: " + text[this.checkWin() - 1]);
+            localStorage.setItem("start", false);
             this.running = false;
         }
 

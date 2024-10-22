@@ -6,7 +6,6 @@ class Item {
         this.x = Math.random() * (this.game.gameWidth - 2 * this.size) + this.size;
         this.y = Math.random() * (this.game.gameHeight - 2 * this.size) + this.size;
         this.image = this.game.images[this.index - 1];
-        console.log(this.size);
 
         this.randomDxDy();
         
