@@ -20,8 +20,8 @@ class Item {
     randomDxDy() {
         this.dx = Math.random() * this.size / 30;
         this.dy = Math.sqrt(this.size/30 * this.size/30 - this.dx * this.dx);
-        this.dx = Math.random() * this.size / 50;
-        this.dy = Math.sqrt(this.size/50 * this.size/50 - this.dx * this.dx);
+        this.dx = Math.random() * this.size / 40;
+        this.dy = Math.sqrt(this.size/40 * this.size/40 - this.dx * this.dx);
         this.angle = Math.random() * 2 * Math.PI;
         this.dAnger =  Math.PI / 300;
         if (Math.random() < 0.5) {
