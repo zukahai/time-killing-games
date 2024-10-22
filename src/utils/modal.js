@@ -12,6 +12,8 @@ window.onload = function () {
     modal.style.display = "block";
 }
 
+localStorage.setItem("start", false);
+
 // When the user clicks on <span> (x), close the modal
 
 span.onclick = function () {
